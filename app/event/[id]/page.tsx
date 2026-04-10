@@ -7,6 +7,7 @@ import EventDescription from "@/components/event/EventDescription";
 import RelatedEvents from "@/components/event/RelatedEvents";
 import LiveChat from "@/components/chat/LiveChat";
 import { EVENTS } from "@/data/events";
+import ScrollToTop from '../../../components/ui/scrolltopto';
 
 type Props = { params: { id: string } };
 
@@ -42,6 +43,7 @@ export default function EventPage({ params }: Props) {
   return (
     <>
       <Navbar />
+      <ScrollToTop />
 
       <main className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/*
