@@ -45,6 +45,8 @@ export default function VideoPlayer({
             <Image
               src={thumbnailUrl}
               alt={title}
+              width={800}
+              height={450}
               className="w-full h-full object-cover"
               onError={(e) => {
                 (e.target as HTMLImageElement).src =
