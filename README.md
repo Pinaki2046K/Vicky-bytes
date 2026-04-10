@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-> _Deploy and paste your Vercel URL here_
+> https://event-streaming-dusky.vercel.app
 
 ---
 
@@ -54,7 +54,7 @@
 | Language   | TypeScript                                                   |
 | Deployment | Vercel                                                       |
 
-**No backend. No Firebase. No shadcn/ui.**
+
 
 ---
 
@@ -68,7 +68,7 @@
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/vickybytes-live.git
+git clone https://github.com/Pinaki2046K/Vicky-bytes.git
 cd vickybytes-live
 ```
 
@@ -84,7 +84,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000]
 
 ### 4. Build for production
 
@@ -95,16 +95,6 @@ npm start
 
 ---
 
-## 🌐 Deployment (Vercel)
-
-1. Push repo to GitHub
-2. Go to [vercel.com](https://vercel.com) → Import Project
-3. Select the repo — Vercel auto-detects Next.js
-4. Click **Deploy**
-
-No environment variables required.
-
----
 
 ## 📁 Project Structure
 
