@@ -17,7 +17,7 @@ export default function Navbar() {
               <Tv size={16} className="text-white" />
             </div>
             <span className="font-display font-bold text-xl tracking-tight">
-              Vicky<span className="text-gradient">Bytes</span>
+              StreamX<span className="text-gradient"></span>
             </span>
           </Link>
 
@@ -46,7 +46,7 @@ export default function Navbar() {
               <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-brand-500" />
             </button>
             <button className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-xs font-bold text-white">
-              VB
+              PA
             </button>
             {/* Mobile menu toggle */}
             <button
