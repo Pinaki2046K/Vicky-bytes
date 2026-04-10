@@ -1,36 +1,43 @@
-import { notFound } from 'next/navigation'
-import type { Metadata } from 'next'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
-import VideoPlayer from '@/components/event/VideoPlayer'
-import EventDescription from '@/components/event/EventDescription'
-import RelatedEvents from '@/components/event/RelatedEvents'
-import LiveChat from '@/components/chat/LiveChat'
-import { EVENTS } from '@/data/events'
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import VideoPlayer from "@/components/event/VideoPlayer";
+import EventDescription from "@/components/event/EventDescription";
+import RelatedEvents from "@/components/event/RelatedEvents";
+import LiveChat from "@/components/chat/LiveChat";
+import { EVENTS } from "@/data/events";
 
-type Props = { params: { id: string } }
+type Props = { params: { id: string } };
 
 export async function generateStaticParams() {
-  return EVENTS.map(e => ({ id: e.id }))
+  return EVENTS.map((e) => ({ id: e.id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const event = EVENTS.find(e => e.id === params.id)
-  if (!event) return { title: 'Event Not Found — VickyBytes' }
+  const event = EVENTS.find((e) => e.id === params.id);
+  if (!event) return { title: "Event Not Found" };
   return {
-    title: `${event.title} — VickyBytes Live`,
-    description: event.description,
+    title: `${event.title} | VickyBytes Live`,
+    description: event.longDescription,
     openGraph: {
       title: event.title,
-      description: event.description,
-      images: [{ url: event.image }],
+      description: event.longDescription,
+      images: [{ url: event.image, width: 800, height: 450 }],
+      type: "video.other",
     },
-  }
+    twitter: {
+      card: "summary_large_image",
+      title: event.title,
+      description: event.description,
+      images: [event.image],
+    },
+  };
 }
 
 export default function EventPage({ params }: Props) {
-  const event = EVENTS.find(e => e.id === params.id)
-  if (!event) notFound()
+  const event = EVENTS.find((e) => e.id === params.id);
+  if (!event) notFound();
 
   return (
     <>
@@ -44,7 +51,6 @@ export default function EventPage({ params }: Props) {
           Mobile:  Video → Description → Chat → Related
         */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
           {/* ── LEFT / MAIN COLUMN ── */}
           <div className="lg:col-span-8 space-y-6">
             {/* Video */}
@@ -73,11 +79,10 @@ export default function EventPage({ params }: Props) {
             {/* Related */}
             <RelatedEvents currentId={event.id} category={event.category} />
           </div>
-
         </div>
       </main>
 
       <Footer />
     </>
-  )
+  );
 }

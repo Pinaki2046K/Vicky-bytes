@@ -13,6 +13,7 @@
 ## 📸 Features
 
 ### Part 1 — Event Listing Page
+
 - **15 real event cards** across 7 categories (Music, Gaming, Tech, Sports, Art, Comedy, Education)
 - **Live search** — filter by title, host, category, or tags
 - **Category filter pills** — one-click filtering
@@ -28,6 +29,7 @@
 - **Live ticker** marquee showing currently streaming events
 
 ### Part 2 — Event Streaming Page
+
 - **YouTube embed** video player with custom thumbnail overlay
 - **Auto-simulated live chat** with new messages every 2–4s
 - **Auto-scroll** chat to bottom, with "N new messages" bounce-up button
@@ -41,16 +43,16 @@
 
 ## 🛠️ Tech Stack
 
-| Layer | Choice |
-|-------|--------|
-| Framework | Next.js 14 (App Router) |
-| Styling | Tailwind CSS + Custom CSS |
-| Icons | Lucide React |
-| Fonts | Playfair Display (display) · DM Sans (body) · JetBrains Mono |
-| Images | Next/Image with Unsplash |
-| Video | YouTube iframe embed |
-| Language | TypeScript |
-| Deployment | Vercel |
+| Layer      | Choice                                                       |
+| ---------- | ------------------------------------------------------------ |
+| Framework  | Next.js 14 (App Router)                                      |
+| Styling    | Tailwind CSS + Custom CSS                                    |
+| Icons      | Lucide React                                                 |
+| Fonts      | Playfair Display (display) · DM Sans (body) · JetBrains Mono |
+| Images     | Next/Image with Unsplash                                     |
+| Video      | YouTube iframe embed                                         |
+| Language   | TypeScript                                                   |
+| Deployment | Vercel                                                       |
 
 **No backend. No Firebase. No shadcn/ui.**
 
@@ -59,6 +61,7 @@
 ## ⚙️ Setup Instructions
 
 ### Prerequisites
+
 - Node.js 18+
 - npm / yarn / pnpm
 

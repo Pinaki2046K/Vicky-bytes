@@ -1,15 +1,21 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { Users, Clock } from 'lucide-react'
-import { EVENTS, formatViewers, type Event } from '@/data/events'
-import { LiveBadge } from '@/components/ui/Badges'
+import Image from "next/image";
+import Link from "next/link";
+import { Users, Clock } from "lucide-react";
+import { EVENTS, formatViewers, type Event } from "@/data/events";
+import { LiveBadge } from "@/components/ui/Badges";
 
-export default function RelatedEvents({ currentId, category }: { currentId: string; category: string }) {
-  const related = EVENTS
-    .filter(e => e.id !== currentId && (e.category === category || e.isTrending))
-    .slice(0, 5)
+export default function RelatedEvents({
+  currentId,
+  category,
+}: {
+  currentId: string;
+  category: string;
+}) {
+  const related = EVENTS.filter(
+    (e) => e.id !== currentId && (e.category === category || e.isTrending),
+  ).slice(0, 5);
 
-  if (related.length === 0) return null
+  if (related.length === 0) return null;
 
   return (
     <div className="bg-surface-1 rounded-2xl border border-white/5 overflow-hidden">
@@ -23,7 +29,6 @@ export default function RelatedEvents({ currentId, category }: { currentId: stri
             href={`/event/${event.id}`}
             className="flex gap-3 p-3 hover:bg-surface-2 transition-colors group"
           >
-            
             <div className="relative w-24 aspect-video rounded-lg overflow-hidden flex-shrink-0 bg-surface-3">
               <Image
                 src={event.image}
@@ -38,7 +43,7 @@ export default function RelatedEvents({ currentId, category }: { currentId: stri
                 </div>
               )}
             </div>
-            
+
             <div className="flex-1 min-w-0 py-0.5">
               <p className="text-xs font-medium text-ink leading-snug line-clamp-2 group-hover:text-brand-400 transition-colors mb-1.5">
                 {event.title}
@@ -59,5 +64,5 @@ export default function RelatedEvents({ currentId, category }: { currentId: stri
         ))}
       </div>
     </div>
-  )
+  );
 }

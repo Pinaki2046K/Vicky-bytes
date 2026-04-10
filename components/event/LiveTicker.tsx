@@ -1,12 +1,11 @@
-import { EVENTS } from '@/data/events'
-import { Zap } from 'lucide-react'
+import { EVENTS } from "@/data/events";
+import { Zap } from "lucide-react";
 
 export default function LiveTicker() {
-  const liveEvents = EVENTS.filter(e => e.isLive)
-  if (liveEvents.length === 0) return null
+  const liveEvents = EVENTS.filter((e) => e.isLive);
+  if (liveEvents.length === 0) return null;
 
-  
-  const items = [...liveEvents, ...liveEvents, ...liveEvents, ...liveEvents]
+  const items = [...liveEvents, ...liveEvents, ...liveEvents, ...liveEvents];
 
   return (
     <div className="bg-brand-500/10 border-y border-brand-500/20 py-2.5 overflow-hidden">
@@ -19,7 +18,10 @@ export default function LiveTicker() {
         </div>
         <div className="flex gap-8 animate-marquee whitespace-nowrap">
           {items.map((e, i) => (
-            <span key={`${e.id}-${i}`} className="inline-flex items-center gap-2 text-xs text-ink-muted">
+            <span
+              key={`${e.id}-${i}`}
+              className="inline-flex items-center gap-2 text-xs text-ink-muted"
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-dot flex-shrink-0" />
               <span className="font-medium text-ink">{e.title}</span>
               <span className="text-ink-faint">·</span>
@@ -29,5 +31,5 @@ export default function LiveTicker() {
         </div>
       </div>
     </div>
-  )
+  );
 }

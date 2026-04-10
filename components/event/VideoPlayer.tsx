@@ -1,24 +1,30 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Play, Volume2, Maximize, Settings } from 'lucide-react'
-import { LiveBadge } from '@/components/ui/Badges'
-import { formatViewers } from '@/data/events'
-import clsx from 'clsx'
+import { useState } from "react";
+import Image from "next/image";
+import { Play, Volume2, Maximize, Settings } from "lucide-react";
+import { LiveBadge } from "@/components/ui/Badges";
+import { formatViewers } from "@/data/events";
+import clsx from "clsx";
 
 type Props = {
-  youtubeId: string
-  title: string
-  isLive: boolean
-  viewers: number
-}
+  youtubeId: string;
+  title: string;
+  isLive: boolean;
+  viewers: number;
+};
 
-export default function VideoPlayer({ youtubeId, title, isLive, viewers }: Props) {
-  const [started, setStarted] = useState(false)
-  const [quality, setQuality] = useState('1080p')
+export default function VideoPlayer({
+  youtubeId,
+  title,
+  isLive,
+  viewers,
+}: Props) {
+  const [started, setStarted] = useState(false);
+  const [quality, setQuality] = useState("1080p");
 
-  const thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`
-  const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&color=red`
+  const thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+  const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&color=red`;
 
   return (
     <div className="relative w-full rounded-2xl overflow-hidden bg-surface-1 border border-white/5">
@@ -32,14 +38,17 @@ export default function VideoPlayer({ youtubeId, title, isLive, viewers }: Props
             className="absolute inset-0 w-full h-full"
           />
         ) : (
-          <div className="absolute inset-0 group cursor-pointer" onClick={() => setStarted(true)}>
-            
-            <img
+          <div
+            className="absolute inset-0 group cursor-pointer"
+            onClick={() => setStarted(true)}
+          >
+            <Image
               src={thumbnailUrl}
               alt={title}
               className="w-full h-full object-cover"
               onError={(e) => {
-                ;(e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`
+                (e.target as HTMLImageElement).src =
+                  `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
               }}
             />
 
@@ -64,7 +73,9 @@ export default function VideoPlayer({ youtubeId, title, isLive, viewers }: Props
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-              <p className="text-sm font-medium text-ink line-clamp-1">{title}</p>
+              <p className="text-sm font-medium text-ink line-clamp-1">
+                {title}
+              </p>
               <p className="text-xs text-ink-muted mt-0.5">Click to play</p>
             </div>
           </div>
@@ -78,13 +89,15 @@ export default function VideoPlayer({ youtubeId, title, isLive, viewers }: Props
               <Volume2 size={16} />
             </button>
             <div className="flex gap-1">
-              {['360p', '720p', '1080p', '4K'].map(q => (
+              {["360p", "720p", "1080p", "4K"].map((q) => (
                 <button
                   key={q}
                   onClick={() => setQuality(q)}
                   className={clsx(
-                    'text-[10px] font-mono px-1.5 py-0.5 rounded transition-colors',
-                    quality === q ? 'bg-brand-500/20 text-brand-400' : 'text-ink-faint hover:text-ink-muted'
+                    "text-[10px] font-mono px-1.5 py-0.5 rounded transition-colors",
+                    quality === q
+                      ? "bg-brand-500/20 text-brand-400"
+                      : "text-ink-faint hover:text-ink-muted",
                   )}
                 >
                   {q}
@@ -103,5 +116,5 @@ export default function VideoPlayer({ youtubeId, title, isLive, viewers }: Props
         </div>
       )}
     </div>
-  )
+  );
 }

@@ -1,33 +1,39 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Heart, Share2, Eye, Calendar, Clock, Users } from 'lucide-react'
-import { type Event, formatViewers, formatDate } from '@/data/events'
-import { LiveBadge, TrendingBadge, CategoryBadge } from '@/components/ui/Badges'
-import clsx from 'clsx'
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Heart, Share2, Eye, Calendar, Clock, Users } from "lucide-react";
+import { type Event, formatViewers, formatDate } from "@/data/events";
+import {
+  LiveBadge,
+  TrendingBadge,
+  CategoryBadge,
+} from "@/components/ui/Badges";
+import clsx from "clsx";
 
-type Props = { event: Event; index?: number }
+type Props = { event: Event; index?: number };
 
 export default function EventCard({ event, index = 0 }: Props) {
-  const [liked, setLiked] = useState(false)
-  const [likeCount, setLikeCount] = useState(event.likes)
-  const [copied, setCopied] = useState(false)
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(event.likes);
+  const [copied, setCopied] = useState(false);
 
   function handleLike(e: React.MouseEvent) {
-    e.preventDefault()
-    e.stopPropagation()
-    setLiked((v) => !v)
-    setLikeCount((c) => liked ? c - 1 : c + 1)
+    e.preventDefault();
+    e.stopPropagation();
+    setLiked((v) => !v);
+    setLikeCount((c) => (liked ? c - 1 : c + 1));
   }
 
   function handleShare(e: React.MouseEvent) {
-    e.preventDefault()
-    e.stopPropagation()
-    navigator.clipboard.writeText(`${window.location.origin}/event/${event.id}`)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(
+      `${window.location.origin}/event/${event.id}`,
+    );
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   }
 
   return (
@@ -36,7 +42,10 @@ export default function EventCard({ event, index = 0 }: Props) {
       style={{ animationDelay: `${index * 60}ms` }}
     >
       {/* Image */}
-      <Link href={`/event/${event.id}`} className="block relative aspect-video overflow-hidden">
+      <Link
+        href={`/event/${event.id}`}
+        className="block relative aspect-video overflow-hidden"
+      >
         <Image
           src={event.image}
           alt={event.title}
@@ -56,12 +65,16 @@ export default function EventCard({ event, index = 0 }: Props) {
         {/* Viewer count */}
         <div className="absolute top-3 right-3 flex items-center gap-1 glass rounded-full px-2 py-0.5">
           <Users size={10} className="text-ink-muted" />
-          <span className="text-[10px] font-medium text-ink-muted">{formatViewers(event.viewers)}</span>
+          <span className="text-[10px] font-medium text-ink-muted">
+            {formatViewers(event.viewers)}
+          </span>
         </div>
 
         {/* Duration */}
         <div className="absolute bottom-3 right-3 glass rounded-md px-1.5 py-0.5">
-          <span className="text-[10px] font-mono text-ink-muted">{event.duration}</span>
+          <span className="text-[10px] font-mono text-ink-muted">
+            {event.duration}
+          </span>
         </div>
       </Link>
 
@@ -79,7 +92,10 @@ export default function EventCard({ event, index = 0 }: Props) {
             />
           </div>
           <span className="text-xs text-ink-muted truncate">{event.host}</span>
-          <CategoryBadge label={event.category} className="ml-auto flex-shrink-0" />
+          <CategoryBadge
+            label={event.category}
+            className="ml-auto flex-shrink-0"
+          />
         </div>
 
         {/* Title */}
@@ -107,16 +123,19 @@ export default function EventCard({ event, index = 0 }: Props) {
           <button
             onClick={handleLike}
             className={clsx(
-              'flex items-center gap-1.5 text-xs font-medium rounded-lg px-2.5 py-1.5 transition-all duration-200',
+              "flex items-center gap-1.5 text-xs font-medium rounded-lg px-2.5 py-1.5 transition-all duration-200",
               liked
-                ? 'bg-brand-500/15 text-brand-400 border border-brand-500/30'
-                : 'bg-surface-3 text-ink-muted border border-white/5 hover:text-brand-400 hover:border-brand-500/20'
+                ? "bg-brand-500/15 text-brand-400 border border-brand-500/30"
+                : "bg-surface-3 text-ink-muted border border-white/5 hover:text-brand-400 hover:border-brand-500/20",
             )}
-            aria-label={liked ? 'Unlike' : 'Like'}
+            aria-label={liked ? "Unlike" : "Like"}
           >
             <Heart
               size={12}
-              className={clsx('transition-all duration-200', liked ? 'fill-brand-400 scale-110' : '')}
+              className={clsx(
+                "transition-all duration-200",
+                liked ? "fill-brand-400 scale-110" : "",
+              )}
             />
             <span>{formatViewers(likeCount)}</span>
           </button>
@@ -128,7 +147,7 @@ export default function EventCard({ event, index = 0 }: Props) {
             aria-label="Share"
           >
             <Share2 size={12} />
-            <span>{copied ? 'Copied!' : 'Share'}</span>
+            <span>{copied ? "Copied!" : "Share"}</span>
           </button>
 
           {/* View */}
@@ -142,5 +161,5 @@ export default function EventCard({ event, index = 0 }: Props) {
         </div>
       </div>
     </article>
-  )
+  );
 }

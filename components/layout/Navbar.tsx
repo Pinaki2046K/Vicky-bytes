@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { Tv, Bell, Menu, X, Zap } from 'lucide-react'
+import { useState } from "react";
+import Link from "next/link";
+import { Tv, Bell, Menu, X, Zap } from "lucide-react";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 glass border-b border-white/5">
@@ -23,7 +23,7 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {['Events', 'Trending', 'Schedule', 'Creators'].map((item) => (
+            {["Events", "Trending", "Schedule", "Creators"].map((item) => (
               <Link
                 key={item}
                 href="#"
@@ -49,7 +49,10 @@ export default function Navbar() {
               VB
             </button>
             {/* Mobile menu toggle */}
-            <button className="md:hidden p-2 text-ink-muted" onClick={() => setOpen(!open)}>
+            <button
+              className="md:hidden p-2 text-ink-muted"
+              onClick={() => setOpen(!open)}
+            >
               {open ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
@@ -59,7 +62,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-surface-1 border-t border-white/5 px-4 py-4 space-y-3">
-          {['Events', 'Trending', 'Schedule', 'Creators'].map((item) => (
+          {["Events", "Trending", "Schedule", "Creators"].map((item) => (
             <Link
               key={item}
               href="#"
@@ -76,5 +79,5 @@ export default function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }

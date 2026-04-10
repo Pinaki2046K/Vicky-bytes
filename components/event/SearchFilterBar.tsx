@@ -1,33 +1,39 @@
-'use client'
+"use client";
 
-import { Search, SlidersHorizontal, X, TrendingUp, Flame } from 'lucide-react'
-import { CATEGORIES } from '@/data/events'
-import clsx from 'clsx'
+import { Search, SlidersHorizontal, X, TrendingUp, Flame } from "lucide-react";
+import { CATEGORIES } from "@/data/events";
+import clsx from "clsx";
 
 type Props = {
-  search: string
-  setSearch: (v: string) => void
-  category: string
-  setCategory: (v: string) => void
-  showLiveOnly: boolean
-  setShowLiveOnly: (v: boolean) => void
-  showTrendingOnly: boolean
-  setShowTrendingOnly: (v: boolean) => void
-  total: number
-}
+  search: string;
+  setSearch: (v: string) => void;
+  category: string;
+  setCategory: (v: string) => void;
+  showLiveOnly: boolean;
+  setShowLiveOnly: (v: boolean) => void;
+  showTrendingOnly: boolean;
+  setShowTrendingOnly: (v: boolean) => void;
+  total: number;
+};
 
 export default function SearchFilterBar({
-  search, setSearch,
-  category, setCategory,
-  showLiveOnly, setShowLiveOnly,
-  showTrendingOnly, setShowTrendingOnly,
+  search,
+  setSearch,
+  category,
+  setCategory,
+  showLiveOnly,
+  setShowLiveOnly,
+  showTrendingOnly,
+  setShowTrendingOnly,
   total,
 }: Props) {
   return (
     <div className="space-y-4">
-      
       <div className="relative max-w-xl">
-        <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none" />
+        <Search
+          size={16}
+          className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none"
+        />
         <input
           type="text"
           value={search}
@@ -37,7 +43,7 @@ export default function SearchFilterBar({
         />
         {search && (
           <button
-            onClick={() => setSearch('')}
+            onClick={() => setSearch("")}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-muted hover:text-ink"
           >
             <X size={14} />
@@ -57,10 +63,10 @@ export default function SearchFilterBar({
               key={cat}
               onClick={() => setCategory(cat)}
               className={clsx(
-                'px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200',
+                "px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
                 category === cat
-                  ? 'bg-brand-500 text-white shadow-lg shadow-brand-500/20'
-                  : 'bg-surface-2 text-ink-muted border border-white/5 hover:border-brand-500/30 hover:text-ink'
+                  ? "bg-brand-500 text-white shadow-lg shadow-brand-500/20"
+                  : "bg-surface-2 text-ink-muted border border-white/5 hover:border-brand-500/30 hover:text-ink",
               )}
             >
               {cat}
@@ -73,26 +79,34 @@ export default function SearchFilterBar({
         <button
           onClick={() => setShowLiveOnly(!showLiveOnly)}
           className={clsx(
-            'flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200',
+            "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
             showLiveOnly
-              ? 'bg-brand-500/20 text-brand-400 border border-brand-500/40'
-              : 'bg-surface-2 text-ink-muted border border-white/5 hover:border-brand-500/20'
+              ? "bg-brand-500/20 text-brand-400 border border-brand-500/40"
+              : "bg-surface-2 text-ink-muted border border-white/5 hover:border-brand-500/20",
           )}
         >
-          <span className={clsx('w-1.5 h-1.5 rounded-full', showLiveOnly ? 'bg-brand-500 animate-pulse-dot' : 'bg-ink-faint')} />
+          <span
+            className={clsx(
+              "w-1.5 h-1.5 rounded-full",
+              showLiveOnly ? "bg-brand-500 animate-pulse-dot" : "bg-ink-faint",
+            )}
+          />
           Live Now
         </button>
 
         <button
           onClick={() => setShowTrendingOnly(!showTrendingOnly)}
           className={clsx(
-            'flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200',
+            "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
             showTrendingOnly
-              ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40'
-              : 'bg-surface-2 text-ink-muted border border-white/5 hover:border-amber-500/20'
+              ? "bg-amber-500/20 text-amber-400 border border-amber-500/40"
+              : "bg-surface-2 text-ink-muted border border-white/5 hover:border-amber-500/20",
           )}
         >
-          <Flame size={11} className={showTrendingOnly ? 'text-amber-400' : ''} />
+          <Flame
+            size={11}
+            className={showTrendingOnly ? "text-amber-400" : ""}
+          />
           Trending
         </button>
 
@@ -101,5 +115,5 @@ export default function SearchFilterBar({
         </span>
       </div>
     </div>
-  )
+  );
 }
