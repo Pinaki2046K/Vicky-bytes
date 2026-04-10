@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Play, Volume2, Maximize, Settings } from "lucide-react";
 import { LiveBadge } from "@/components/ui/Badges";
@@ -14,17 +14,23 @@ type Props = {
   viewers: number;
 };
 
-export default function VideoPlayer({
-  youtubeId,
-  title,
-  isLive,
-  viewers,
-}: Props) {
+export default function VideoPlayer({ youtubeId, title, isLive, viewers }: Props) {
   const [started, setStarted] = useState(false);
   const [quality, setQuality] = useState("1080p");
 
   const thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
   const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&color=red`;
+
+  useEffect(() => {
+    if (!started) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.code === 'Space' && e.target === document.body) {
+        e.preventDefault()
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [started])
 
   return (
     <div className="relative w-full rounded-2xl overflow-hidden bg-surface-1 border border-white/5">
@@ -35,6 +41,7 @@ export default function VideoPlayer({
             title={title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
+            autoFocus
             className="absolute inset-0 w-full h-full"
           />
         ) : (
@@ -75,9 +82,7 @@ export default function VideoPlayer({
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-              <p className="text-sm font-medium text-ink line-clamp-1">
-                {title}
-              </p>
+              <p className="text-sm font-medium text-ink line-clamp-1">{title}</p>
               <p className="text-xs text-ink-muted mt-0.5">Click to play</p>
             </div>
           </div>
