@@ -126,7 +126,7 @@ vickybytes-live/
 │   └── chat/
 │       └── LiveChat.tsx    # Real-time simulated chat
 ├── data/
-│   ├── events.ts           # 15 mock events + helpers
+│   ├── events.ts           # 18 mock events + helpers
 │   └── chat.ts             # Mock messages + random generator
 ├── tailwind.config.js
 ├── next.config.js
