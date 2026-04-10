@@ -4,13 +4,13 @@
 
 ---
 
-## 🚀 Live Demo
+##  Live Demo
 
 > https://event-streaming-dusky.vercel.app
 
 ---
 
-## 📸 Features
+## Features
 
 ### Part 1 — Event Listing Page
 
@@ -41,7 +41,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer      | Choice                                                       |
 | ---------- | ------------------------------------------------------------ |
@@ -58,7 +58,7 @@
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 ### Prerequisites
 
@@ -96,7 +96,7 @@ npm start
 ---
 
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 vickybytes-live/
@@ -135,7 +135,7 @@ vickybytes-live/
 
 ---
 
-## 🎨 Design Decisions
+##  Design Decisions
 
 - **Dark-first aesthetic** — deep navy/charcoal surfaces with a bold red (`#ff3d30`) accent
 - **Playfair Display** for editorial headings — gives a premium broadcast feel
@@ -146,4 +146,4 @@ vickybytes-live/
 
 ---
 
-_Built with ❤️ by Pinaki Auddy_
+_Built with love by Pinaki Auddy_
