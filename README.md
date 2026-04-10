@@ -1,4 +1,4 @@
-# VickyBytes Live — Live Event Streaming Platform
+# Live Event Streaming Platform
 
 > A premium live event streaming UI built for the VickyBytes Frontend Engineering Assignment.
 
