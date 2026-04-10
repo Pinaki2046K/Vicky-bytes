@@ -7,7 +7,7 @@ import EventDescription from "@/components/event/EventDescription";
 import RelatedEvents from "@/components/event/RelatedEvents";
 import LiveChat from "@/components/chat/LiveChat";
 import { EVENTS } from "@/data/events";
-import ScrollToTop from '../../../components/ui/scrolltopto';
+import ScrollToTop from '../../../components/ui/ScrollTopTo';
 
 type Props = { params: { id: string } };
 

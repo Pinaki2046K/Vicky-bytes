@@ -14,7 +14,7 @@
 
 ### Part 1 — Event Listing Page
 
-- **15 real event cards** across 7 categories (Music, Gaming, Tech, Sports, Art, Comedy, Education)
+- **18 real event cards** across 7 categories (Music, Gaming, Tech, Sports, Art, Comedy, Education)
 - **Live search** — filter by title, host, category, or tags
 - **Category filter pills** — one-click filtering
 - **Live Now** and **Trending** quick-filter toggles
@@ -146,4 +146,4 @@ vickybytes-live/
 
 ---
 
-_Built with ❤️ for the VickyBytes Frontend Engineering Assignment_
+_Built with ❤️ by Pinaki Auddy_

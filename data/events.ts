@@ -381,7 +381,7 @@ export const EVENTS: Event[] = [
     host: "Anthropic",
     hostAvatar:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80",
-    youtubeId: "v=d3Qq-rkp_to",
+    youtubeId: "d3Qq-rkp_to",
   },
   {
   id: '17',
